@@ -1,18 +1,23 @@
 import video from "../data/video.js";
+import Likes from "./Likes.js";
+import Comments from "./Comments.js";
 
 function App() {
-  console.log("Here's your data:", video);
 
   return (
     <div className="App">
       <iframe
         width="919"
         height="525"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        src={video.embedUrl}
         frameBorder="0"
         allowFullScreen
         title="Thinking in React"
       />
+      <h1>{video.title}</h1>
+      <p>{video.views} veiws | Uploaded {video.createdAt}</p>
+      <Likes info = {video}/>
+      <Comments info = {video.comments} />
     </div>
   );
 }
